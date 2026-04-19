@@ -32,13 +32,13 @@ namespace Bibbit::Math
 		const FReal ADot = A | A;
 		if (ADot <= EpsilonSq)
 		{
-			return 0.0f;
+			return 0.0;
 		}
 
 		const FReal BDot = B | B;
 		if (BDot <= EpsilonSq)
 		{
-			return 0.0f;
+			return 0.0;
 		}
 
 		const FReal ABDot = A | B;
