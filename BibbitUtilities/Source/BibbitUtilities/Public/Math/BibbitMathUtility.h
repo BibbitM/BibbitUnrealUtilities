@@ -5,7 +5,7 @@
 #include "Math/UnrealMathUtility.h"
 #include "Math/Vector.h"
 
-namespace BibbitMath
+namespace Bibbit::Math
 {
 	/** Calculate cosine of the angle between two vectors.
 	 *
