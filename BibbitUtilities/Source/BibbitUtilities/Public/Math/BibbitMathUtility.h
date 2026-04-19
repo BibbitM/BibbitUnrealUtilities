@@ -68,11 +68,11 @@ namespace Bibbit::Math
 	 *
 	 * @param A First vector.
 	 * @param B Second vector.
-	 * @param Axis The reference axis to get the sign to rotate from A to B.
+	 * @param Axis The reference axis to get the sign to rotate from A to B. Default is UpVector.
 	 * @return Signed angle between vectors in radians [-PI;PI].
 	 */
 	template <typename FReal>
-	[[nodiscard]] inline FReal VectorSignedAngle(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, const UE::Math::TVector<FReal>& Axis)
+	[[nodiscard]] inline FReal VectorSignedAngle(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, const UE::Math::TVector<FReal>& Axis = UE::Math::TVector<FReal>::UpVector)
 	{
 		const UE::Math::TVector<FReal> Cross = A ^ B;
 		const FReal Dot = A | B;

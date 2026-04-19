@@ -87,4 +87,17 @@ namespace Bibbit::Math
 
 		return true;
 	}
+
+	IMPLEMENT_SIMPLE_AUTOMATION_TEST(VectorSignedAngleTest_DefaultAxis, "Bibbit.Math.VectorSignedAngle.DefaultAxis", EAutomationTestFlags::EditorContext | EAutomationTestFlags::EngineFilter);
+
+	bool VectorSignedAngleTest_DefaultAxis::RunTest(const FString& Parameters)
+	{
+		const FVector Forward = FVector::ForwardVector;
+		const FVector Right = FVector::RightVector;
+
+		UTEST_EQUAL("Default axis (Up) gives 90 degrees for Forward to Right", VectorSignedAngle(Forward, Right), UE_DOUBLE_HALF_PI);
+		UTEST_EQUAL("Explicit Up axis matches default axis", VectorSignedAngle(Forward, Right), VectorSignedAngle(Forward, Right, FVector::UpVector));
+
+		return true;
+	}
 }
