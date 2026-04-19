@@ -18,7 +18,7 @@
 		{
 			"Name": "BibbitUtilities",
 			"Type": "Runtime",
-			"LoadingPhase": "PreLoadingScreen"
+			"LoadingPhase": "Default"
 		}
 	]
 }
