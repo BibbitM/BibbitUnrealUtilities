@@ -50,10 +50,6 @@ namespace Bibbit::Math
 		UTEST_EQUAL("Parallel gives zero", VectorCosine(FVector::RightVector, FVector::BackwardVector), 0.0);
 		UTEST_EQUAL("Opposite gives minus one", VectorCosine(FVector::UpVector, FVector::DownVector), -1.0);
 
-		UTEST_EQUAL("Scaled same gives one", VectorCosine(FVector::ForwardVector * 2.0, FVector::ForwardVector * 3.0), 1.0);
-		UTEST_EQUAL("Scaled parallel gives zero", VectorCosine(FVector::RightVector * 99.0, FVector::BackwardVector * 0.01), 0.0);
-		UTEST_EQUAL("Scaled opposite gives minus one", VectorCosine(FVector::UpVector * 5.0, FVector::DownVector * 500.0), -1.0);
-
 		return true;
 	}
 

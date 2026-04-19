@@ -64,7 +64,6 @@ namespace Bibbit::Math
 
 	bool VectorSignedAngleTest_SmallVectors::RunTest(const FString& Parameters)
 	{
-		// With Atan2(0, 0), result is 0
 		UTEST_EQUAL("Zero vectors give 0", VectorSignedAngle(FVector::ZeroVector, FVector::ZeroVector, FVector::UpVector), 0.0);
 		UTEST_EQUAL("First zero gives 0", VectorSignedAngle(FVector::ZeroVector, FVector::ForwardVector, FVector::UpVector), 0.0);
 		UTEST_EQUAL("Second zero gives 0", VectorSignedAngle(FVector::ForwardVector, FVector::ZeroVector, FVector::UpVector), 0.0);
