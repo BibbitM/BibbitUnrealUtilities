@@ -84,6 +84,7 @@ namespace Bibbit::Math
 		const double UnsignedAngle = VectorAngle(A, B);
 
 		UTEST_EQUAL("Absolute signed angle equals unsigned angle", FMath::Abs(SignedAngle), UnsignedAngle);
+		UTEST_EQUAL("Angle for zero vector equals", VectorSignedAngle(FVector::ZeroVector, FVector::ZeroVector), VectorAngle(FVector::ZeroVector, FVector::ZeroVector));
 
 		return true;
 	}

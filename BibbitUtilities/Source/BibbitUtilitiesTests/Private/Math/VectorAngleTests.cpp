@@ -10,10 +10,9 @@ namespace Bibbit::Math
 
 	bool VectorAngleTest_ZeroVectors::RunTest(const FString& Parameters)
 	{
-		// Acos(0.0) is PI/2, which is the expected behavior for zero vectors in VectorAngle as per VectorCosine returning 0.0
-		UTEST_EQUAL("Both zero gives PI/2", VectorAngle(FVector::ZeroVector, FVector::ZeroVector), UE_DOUBLE_HALF_PI);
-		UTEST_EQUAL("First zero gives PI/2", VectorAngle(FVector::ZeroVector, FVector(1.0f, 2.0f, 3.0f)), UE_DOUBLE_HALF_PI);
-		UTEST_EQUAL("Second zero gives PI/2", VectorAngle(FVector(-1.0f, -2.0f, -3.0f), FVector::ZeroVector), UE_DOUBLE_HALF_PI);
+		UTEST_EQUAL("Both zero gives 0.0", VectorAngle(FVector::ZeroVector, FVector::ZeroVector), 0.0);
+		UTEST_EQUAL("First zero gives 0.0", VectorAngle(FVector::ZeroVector, FVector(1.0f, 2.0f, 3.0f)), 0.0);
+		UTEST_EQUAL("Second zero gives 0.0", VectorAngle(FVector(-1.0f, -2.0f, -3.0f), FVector::ZeroVector), 0.0);
 
 		return true;
 	}

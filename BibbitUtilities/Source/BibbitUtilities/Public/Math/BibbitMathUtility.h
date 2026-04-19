@@ -54,12 +54,33 @@ namespace Bibbit::Math
 	 *
 	 * @param A First vector.
 	 * @param B Second vector.
+	 * @param EpsilonSq Squared epsilon for vector normalization.
 	 * @return Angle between vectors in radians [0;PI].
 	 */
 	template <typename FReal>
-	[[nodiscard]] inline FReal VectorAngle(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B)
+	[[nodiscard]] inline FReal VectorAngle(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, FReal EpsilonSq = UE_SMALL_NUMBER)
 	{
-		return FMath::Acos(VectorCosine(A, B));
+		/* Implementation is based on VectorCosine.
+		 * Reimplemented to handle the angles between zero vectors, where we want to get a zero angle.
+		 */
+
+		const FReal ADot = A | A;
+		if (ADot <= EpsilonSq)
+		{
+			return 0.0;
+		}
+
+		const FReal BDot = B | B;
+		if (BDot <= EpsilonSq)
+		{
+			return 0.0;
+		}
+
+		const FReal ABDot = A | B;
+
+		const FReal Cosine = ABDot * FMath::InvSqrt(ADot * BDot);
+
+		return FMath::Acos(Cosine);
 	}
 
 	/** Calculate the signed angle between two vectors.
