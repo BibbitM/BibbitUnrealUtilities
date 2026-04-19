@@ -10,7 +10,7 @@ namespace Bibbit::Math
 	/** Calculate cosine of the angle between two vectors.
 	 *
 	 * The vector doesn't need to be normalized before calculation.
-	 * Uses safe epsilon so no division by zero.
+	 * Use a safe epsilon so no division by zero.
 	 * If vectors are too small, returns 0.0.
 	 *
 	 * @param A First vector.
@@ -49,7 +49,7 @@ namespace Bibbit::Math
 	/** Calculate cosine of the angle between two 2D vectors.
 	 *
 	 * The vector doesn't need to be normalized before calculation.
-	 * Uses safe epsilon so no division by zero.
+	 * Use a safe epsilon so no division by zero.
 	 * If vectors are too small, returns 0.0.
 	 *
 	 * @param A First vector.
@@ -80,7 +80,7 @@ namespace Bibbit::Math
 	/** Calculate cosine of the angle between two vectors in 2D (Z coordinate is ignored).
 	 *
 	 * The vector doesn't need to be normalized before calculation.
-	 * Uses safe epsilon so no division by zero.
+	 * Use a safe epsilon so no division by zero.
 	 * If vectors are too small, returns 0.0.
 	 *
 	 * @param A First vector.
@@ -96,9 +96,11 @@ namespace Bibbit::Math
 
 	/** Calculate the angle between two vectors.
 	 *
-	 * The vector doesn't need to be normalized before calculation.
-	 * The order of the vectors doesn't matter.
 	 * The angle is always positive.
+	 * The order of the vectors doesn't matter.
+	 * The vector doesn't need to be normalized before calculation.
+	 * Use a safe epsilon so no division by zero.
+	 * If vectors are too small, returns 0.0.
 	 *
 	 * @param A First vector.
 	 * @param B Second vector.
@@ -133,9 +135,11 @@ namespace Bibbit::Math
 
 	/** Calculate the angle between two 2D vectors.
 	 *
-	 * The vector doesn't need to be normalized before calculation.
-	 * The order of the vectors doesn't matter.
 	 * The angle is always positive.
+	 * The order of the vectors doesn't matter.
+	 * The vector doesn't need to be normalized before calculation.
+	 * Use a safe epsilon so no division by zero.
+	 * If vectors are too small, returns 0.0.
 	 *
 	 * @param A First vector.
 	 * @param B Second vector.
@@ -166,9 +170,11 @@ namespace Bibbit::Math
 
 	/** Calculate the angle between two vectors in 2D (Z coordinate is ignored).
 	 *
-	 * The vector doesn't need to be normalized before calculation.
-	 * The order of the vectors doesn't matter.
 	 * The angle is always positive.
+	 * The order of the vectors doesn't matter.
+	 * The vector doesn't need to be normalized before calculation.
+	 * Use a safe epsilon so no division by zero.
+	 * If vectors are too small, returns 0.0.
 	 *
 	 * @param A First vector.
 	 * @param B Second vector.
