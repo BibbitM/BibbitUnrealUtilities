@@ -19,6 +19,11 @@
 			"Name": "BibbitUtilities",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "BibbitUtilitiesTests",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "Default"
 		}
 	]
 }
