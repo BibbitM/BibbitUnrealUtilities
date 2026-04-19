@@ -61,4 +61,22 @@ namespace Bibbit::Math
 	{
 		return FMath::Acos(VectorCosine(A, B));
 	}
+
+	/** Calculate the signed angle between two vectors.
+	 *
+	 * The vector doesn't need to be normalized before calculation.
+	 *
+	 * @param A First vector.
+	 * @param B Second vector.
+	 * @param Axis The reference axis to get the sign to rotate from A to B.
+	 * @return Signed angle between vectors in radians [-PI;PI].
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline FReal VectorSignedAngle(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, const UE::Math::TVector<FReal>& Axis)
+	{
+		const UE::Math::TVector<FReal> Cross = A ^ B;
+		const FReal Dot = A | B;
+
+		return FMath::Atan2(FMath::Sqrt(Cross | Cross) * FMath::Sign(Cross | Axis), Dot);
+	}
 };
