@@ -226,4 +226,47 @@ namespace Bibbit::Math
 	{
 		return Vector2DSignedAngle(UE::Math::TVector2<FReal>(A.X, A.Y), UE::Math::TVector2<FReal>(B.X, B.Y));
 	}
+
+	/** Create the vector perpendicular to the given one.
+	 *
+	 * The perpendicular vector is calculated on the plane defined by the axis.
+	 * If the input vector and axis are parallel, or if the axis is zero, it returns a zero vector.
+	 * Otherwise, the output vector has the same length as the input vector.
+	 *
+	 * @param Vector Input vector.
+	 * @param Axis Axis of the plane.
+	 * @return Vector perpendicular to the input vector.
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline UE::Math::TVector<FReal> VectorPerpendicular(const UE::Math::TVector<FReal>& Vector, const UE::Math::TVector<FReal>& Axis = UE::Math::TVector<FReal>::UpVector)
+	{
+		const UE::Math::TVector<FReal> Perpendicular = Axis ^ Vector;
+		return Perpendicular.GetSafeNormal() * Vector.Size();
+	}
+
+	/** Create the vector perpendicular to the given one in 2D (Z coordinate is ignored).
+	 *
+	 * The output vector has the same length as the input vector in 2D.
+	 *
+	 * @param Vector Input vector.
+	 * @return Vector perpendicular to the input vector in 2D.
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline UE::Math::TVector<FReal> VectorPerpendicular2D(const UE::Math::TVector<FReal>& Vector)
+	{
+		return UE::Math::TVector<FReal>(-Vector.Y, Vector.X, 0.0);
+	}
+
+	/** Create the 2D vector perpendicular to the given one.
+	 *
+	 * The output vector has the same length as the input vector.
+	 *
+	 * @param Vector Input vector.
+	 * @return Vector perpendicular to the input vector.
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline UE::Math::TVector2<FReal> Vector2DPerpendicular(const UE::Math::TVector2<FReal>& Vector)
+	{
+		return UE::Math::TVector2<FReal>(-Vector.Y, Vector.X);
+	}
 }
