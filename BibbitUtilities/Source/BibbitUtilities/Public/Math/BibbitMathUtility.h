@@ -46,6 +46,23 @@ namespace Bibbit::Math
 		return ABDot * FMath::InvSqrt(ADot * BDot);
 	}
 
+	/** Calculate cosine of the angle between two vectors in 2D (Z coordinate is ignored).
+	 *
+	 * The vector doesn't need to be normalized before calculation.
+	 * Uses safe epsilon so no division by zero.
+	 * If vectors are too small, returns 0.0.
+	 *
+	 * @param A First vector.
+	 * @param B Second vector.
+	 * @param EpsilonSq Squared epsilon for vector normalization.
+	 * @return Cosine of the angle between vectors.
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline FReal VectorCosine2D(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, FReal EpsilonSq = UE_SMALL_NUMBER)
+	{
+		return VectorCosine(UE::Math::TVector<FReal>(A.X, A.Y, 0.0), UE::Math::TVector<FReal>(B.X, B.Y, 0.0), EpsilonSq);
+	}
+
 	/** Calculate the angle between two vectors.
 	 *
 	 * The vector doesn't need to be normalized before calculation.
@@ -83,6 +100,23 @@ namespace Bibbit::Math
 		return FMath::Acos(Cosine);
 	}
 
+	/** Calculate the angle between two vectors in 2D (Z coordinate is ignored).
+	 *
+	 * The vector doesn't need to be normalized before calculation.
+	 * The order of the vectors doesn't matter.
+	 * The angle is always positive.
+	 *
+	 * @param A First vector.
+	 * @param B Second vector.
+	 * @param EpsilonSq Squared epsilon for vector normalization.
+	 * @return Angle between vectors in radians [0;PI].
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline FReal VectorAngle2D(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, FReal EpsilonSq = UE_SMALL_NUMBER)
+	{
+		return VectorAngle(UE::Math::TVector<FReal>(A.X, A.Y, 0.0), UE::Math::TVector<FReal>(B.X, B.Y, 0.0), EpsilonSq);
+	}
+
 	/** Calculate the signed angle between two vectors.
 	 *
 	 * The vector doesn't need to be normalized before calculation.
@@ -100,4 +134,18 @@ namespace Bibbit::Math
 
 		return FMath::Atan2(FMath::Sqrt(Cross | Cross) * FMath::Sign(Cross | Axis), Dot);
 	}
-};
+
+	/** Calculate the signed angle between two vectors in 2D (Z coordinate is ignored).
+	 *
+	 * The vector doesn't need to be normalized before calculation.
+	 *
+	 * @param A First vector.
+	 * @param B Second vector.
+	 * @return Signed angle between vectors in radians [-PI;PI].
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline FReal VectorSignedAngle2D(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B)
+	{
+		return VectorSignedAngle(UE::Math::TVector<FReal>(A.X, A.Y, 0.0), UE::Math::TVector<FReal>(B.X, B.Y, 0.0), UE::Math::TVector<FReal>::UpVector);
+	}
+}
