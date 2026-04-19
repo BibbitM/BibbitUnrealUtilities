@@ -45,4 +45,20 @@ namespace Bibbit::Math
 
 		return ABDot * FMath::InvSqrt(ADot * BDot);
 	}
+
+	/** Calculate the angle between two vectors.
+	 *
+	 * The vector doesn't need to be normalized before calculation.
+	 * The order of the vectors doesn't matter.
+	 * The angle is always positive.
+	 *
+	 * @param A First vector.
+	 * @param B Second vector.
+	 * @return Angle between vectors in radians [0;PI].
+	 */
+	template <typename FReal>
+	[[nodiscard]] inline FReal VectorAngle(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B)
+	{
+		return FMath::Acos(VectorCosine(A, B));
+	}
 };
