@@ -91,7 +91,7 @@ namespace Bibbit::Math
 	template <typename FReal>
 	[[nodiscard]] inline FReal VectorCosine2D(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, FReal EpsilonSq = UE_SMALL_NUMBER)
 	{
-		return VectorCosine(UE::Math::TVector<FReal>(A.X, A.Y, 0.0), UE::Math::TVector<FReal>(B.X, B.Y, 0.0), EpsilonSq);
+		return Vector2DCosine(UE::Math::TVector2<FReal>(A.X, A.Y), UE::Math::TVector2<FReal>(B.X, B.Y), EpsilonSq);
 	}
 
 	/** Calculate the angle between two vectors.
@@ -178,7 +178,7 @@ namespace Bibbit::Math
 	template <typename FReal>
 	[[nodiscard]] inline FReal VectorAngle2D(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B, FReal EpsilonSq = UE_SMALL_NUMBER)
 	{
-		return VectorAngle(UE::Math::TVector<FReal>(A.X, A.Y, 0.0), UE::Math::TVector<FReal>(B.X, B.Y, 0.0), EpsilonSq);
+		return Vector2DAngle(UE::Math::TVector2<FReal>(A.X, A.Y), UE::Math::TVector2<FReal>(B.X, B.Y), EpsilonSq);
 	}
 
 	/** Calculate the signed angle between two vectors.
@@ -224,6 +224,6 @@ namespace Bibbit::Math
 	template <typename FReal>
 	[[nodiscard]] inline FReal VectorSignedAngle2D(const UE::Math::TVector<FReal>& A, const UE::Math::TVector<FReal>& B)
 	{
-		return VectorSignedAngle(UE::Math::TVector<FReal>(A.X, A.Y, 0.0), UE::Math::TVector<FReal>(B.X, B.Y, 0.0), UE::Math::TVector<FReal>::UpVector);
+		return Vector2DSignedAngle(UE::Math::TVector2<FReal>(A.X, A.Y), UE::Math::TVector2<FReal>(B.X, B.Y));
 	}
 }
