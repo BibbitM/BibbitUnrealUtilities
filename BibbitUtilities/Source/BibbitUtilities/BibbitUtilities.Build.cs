@@ -12,7 +12,11 @@ public class BibbitUtilities : ModuleRules
 
 		PrivateIncludePaths.AddRange([]);
 
-		PublicDependencyModuleNames.AddRange(["Core"]);
+		PublicDependencyModuleNames.AddRange([
+			"Core",
+			"CoreUObject",
+			"Engine"
+		]);
 
 		PrivateDependencyModuleNames.AddRange([]);
 
