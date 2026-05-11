@@ -13,40 +13,49 @@ class BIBBITUTILITIES_API UBibbitMathBlueprintLibrary : public UBlueprintFunctio
 	GENERATED_BODY()
 
 public:
-	/** Calculates the cosine of the angle between A and B. */
-	UFUNCTION(BlueprintPure, Category = "Math|Bibbit|Vector")
+	/** Calculates the cosine of the angle between A and B.
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector")
 	static double VectorCosine(const FVector& A, const FVector& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the cosine of the angle between A and B. */
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector 2D Cosine"), Category = "Math|Bibbit|Vector2D")
+	/** Calculates the cosine of the angle between A and B.
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector 2D Cosine", AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector2D")
 	static double Vector2DCosine(const FVector2D& A, const FVector2D& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the cosine of the angle between A and B using the XY plane (ignores Z). */
-	UFUNCTION(BlueprintPure, Category = "Math|Bibbit|Vector")
+	/** Calculates the cosine of the angle between A and B using the XY plane (ignores Z).
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector")
 	static double VectorCosine2D(const FVector& A, const FVector& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the angle between A and B, in radians [0..PI]. */
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle (Radians)"), Category = "Math|Bibbit|Vector")
+	/** Calculates the angle between A and B, in radians [0..PI].
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle (Radians)", AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector")
 	static double VectorAngleInRadians(const FVector& A, const FVector& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the angle between A and B, in degrees [0..180]. */
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle (Degrees)"), Category = "Math|Bibbit|Vector")
+	/** Calculates the angle between A and B, in degrees [0..180].
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle (Degrees)", AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector")
 	static double VectorAngleInDegrees(const FVector& A, const FVector& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the angle between A and B, in radians [0..PI]. */
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector 2D Angle (Radians)"), Category = "Math|Bibbit|Vector2D")
+	/** Calculates the angle between A and B, in radians [0..PI].
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector 2D Angle (Radians)", AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector2D")
 	static double Vector2DAngleInRadians(const FVector2D& A, const FVector2D& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the angle between A and B, in degrees [0..180]. */
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector 2D Angle (Degrees)"), Category = "Math|Bibbit|Vector2D")
+	/** Calculates the angle between A and B, in degrees [0..180].
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector 2D Angle (Degrees)", AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector2D")
 	static double Vector2DAngleInDegrees(const FVector2D& A, const FVector2D& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the angle between A and B using the XY plane (ignores Z), in radians [0..PI]. */
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle 2D (Radians)"), Category = "Math|Bibbit|Vector")
+	/** Calculates the angle between A and B using the XY plane (ignores Z), in radians [0..PI].
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle 2D (Radians)", AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector")
 	static double VectorAngle2DInRadians(const FVector& A, const FVector& B, double EpsilonSq = 1.e-6);
 
-	/** Calculates the angle between A and B using the XY plane (ignores Z), in degrees [0..180]. */
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle 2D (Degrees)"), Category = "Math|Bibbit|Vector")
+	/** Calculates the angle between A and B using the XY plane (ignores Z), in degrees [0..180].
+	 * @param EpsilonSq Squared epsilon for vector normalization. */
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Vector Angle 2D (Degrees)", AdvancedDisplay = "EpsilonSq"), Category = "Math|Bibbit|Vector")
 	static double VectorAngle2DInDegrees(const FVector& A, const FVector& B, double EpsilonSq = 1.e-6);
 
 	/** Calculates the signed angle from A to B around Axis, in radians [-PI..PI]. */
