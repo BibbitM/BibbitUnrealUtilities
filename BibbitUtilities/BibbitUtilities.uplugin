@@ -21,6 +21,11 @@
 			"LoadingPhase": "Default"
 		},
 		{
+			"Name": "BibbitUtilitiesEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		},
+		{
 			"Name": "BibbitUtilitiesTests",
 			"Type": "UncookedOnly",
 			"LoadingPhase": "Default"
