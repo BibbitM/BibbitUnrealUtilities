@@ -9,4 +9,8 @@ class FBibbitUtilitiesEditorModule : public IModuleInterface
 public:
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
+
+protected:
+	void RegisterDetailsCustomizationButton();
+	void UnregisterDetailsCustomizationButton();
 };

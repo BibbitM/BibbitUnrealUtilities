@@ -16,7 +16,9 @@ public class BibbitUtilitiesEditor : ModuleRules
 			"Core"
 		]);
 
-		PrivateDependencyModuleNames.AddRange([]);
+		PrivateDependencyModuleNames.AddRange([
+			"PropertyEditor"
+		]);
 
 		DynamicallyLoadedModuleNames.AddRange([]);
 	}
