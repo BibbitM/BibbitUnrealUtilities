@@ -6,22 +6,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 An Unreal Engine plugin (`BibbitUtilities/BibbitUtilities.uplugin`) with reusable tools. It is used both as a drop-in plugin for projects and as a reference/cheat sheet for building other features.
 
-The repo contains no `.uproject`. Development happens through the sibling repo `../BibbitUnrealExampleProject` (UE 5.7), where `Plugins/Bibbit` is a directory junction to this repo (`mklink /J Bibbit ..\..\BibbitUnrealUtilities`). Build and test from that project; edits here are picked up directly.
+The repo contains no `.uproject`. Development happens through the sibling repo `../BibbitUnrealExampleProject` (UE 5.8), where `Plugins/Bibbit` is a directory junction to this repo (`mklink /J Bibbit ..\..\BibbitUnrealUtilities`). Build and test from that project; edits here are picked up directly.
 
 ## Build and test
 
-Paths below assume UE 5.7 at the default launcher location and the example project next to this repo.
+Paths below assume UE 5.8 at the default launcher location and the example project next to this repo.
 
 Build the editor target (compiles all plugin modules):
 
 ```
-"C:\Program Files\Epic Games\UE_5.7\Engine\Build\BatchFiles\Build.bat" BibbitExampleProjectEditor Win64 Development -Project="E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -WaitMutex
+"C:\Program Files\Epic Games\UE_5.8\Engine\Build\BatchFiles\Build.bat" BibbitExampleProjectEditor Win64 Development -Project="E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -WaitMutex
 ```
 
 Run automation tests headless (`RunTests` takes a name prefix: `Bibbit` runs all, `Bibbit.Math.VectorAngle` one function's tests, `Bibbit.Math.VectorAngle.ZeroVectors` a single test):
 
 ```
-"C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" "E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -ExecCmds="Automation RunTests Bibbit; Quit" -unattended -nullrhi -nosound -log
+"C:\Program Files\Epic Games\UE_5.8\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" "E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -ExecCmds="Automation RunTests Bibbit; Quit" -unattended -nullrhi -nosound -log
 ```
 
 In the editor, tests are under Tools → Session Frontend → Automation, filtered by `Bibbit`.
