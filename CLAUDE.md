@@ -12,10 +12,18 @@ The repo contains no `.uproject`. Development happens through the sibling repo `
 
 Paths below assume UE 5.8 at the default launcher location and the example project next to this repo.
 
-Build the editor target (compiles all plugin modules):
+Validate a change by building all three configurations below, each with `-WarningsAsErrors`. The flag makes all warnings, including engine API deprecations, fail the build, which matters most after an engine upgrade. It is passed on the command line on purpose: neither the plugin's `Build.cs` files nor the example project's `Target.cs` files set it, so projects that use the plugin keep their own warning settings.
+
+| Target | Configuration | Why |
+|---|---|---|
+| `BibbitExampleProjectEditor` | `Development` | Editor build. The only one that compiles `BibbitUtilitiesEditor` and `BibbitUtilitiesTests`. |
+| `BibbitExampleProject` | `Development` | Game build. Catches runtime code that depends on editor-only APIs (`WITH_EDITOR`). |
+| `BibbitExampleProject` | `Shipping` | Shipping game build. Catches code that depends on checks or logging stripped from shipping. |
 
 ```
-"C:\Program Files\Epic Games\UE_5.8\Engine\Build\BatchFiles\Build.bat" BibbitExampleProjectEditor Win64 Development -Project="E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -WaitMutex
+"C:\Program Files\Epic Games\UE_5.8\Engine\Build\BatchFiles\Build.bat" BibbitExampleProjectEditor Win64 Development -Project="E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -WaitMutex -WarningsAsErrors
+"C:\Program Files\Epic Games\UE_5.8\Engine\Build\BatchFiles\Build.bat" BibbitExampleProject Win64 Development -Project="E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -WaitMutex -WarningsAsErrors
+"C:\Program Files\Epic Games\UE_5.8\Engine\Build\BatchFiles\Build.bat" BibbitExampleProject Win64 Shipping -Project="E:\GitHub\Bibbit\BibbitUnrealExampleProject\BibbitExampleProject.uproject" -WaitMutex -WarningsAsErrors
 ```
 
 Run automation tests headless (`RunTests` takes a name prefix: `Bibbit` runs all, `Bibbit.Math.VectorAngle` one function's tests, `Bibbit.Math.VectorAngle.ZeroVectors` a single test):
